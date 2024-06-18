@@ -1,0 +1,21 @@
+name: tha4
+channels:
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.10
+  - pytorch=2.3.1
+  - torchvision=0.18.1
+  - pillow
+  - matplotlib
+  - numpy
+  - scipy
+  - pip:
+    - tensorboard==2.15.1
+    - opencv-python==4.8.1.78
+    - wxpython==4.2.1
+    - einops
+    - mediapipe==0.10.3
+    - omegaconf
+    - numpy-quaternion==2022.4.2
+    - -e .
