@@ -53,3 +53,5 @@ venv/*
 
 # io dump to ABCI tasks
 *.o*
+
+tha4.egg-info
