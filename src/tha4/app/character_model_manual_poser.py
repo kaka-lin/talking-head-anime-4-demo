@@ -430,7 +430,15 @@ class MainFrame(wx.Frame):
 
 
 if __name__ == "__main__":
-    device = torch.device('cuda:0')
+    # for CUDA or MPS (Metal GPU)
+    device = "cpu"
+    if torch.cuda.is_available():
+        device = "cuda:0"
+    elif torch.backends.mps.is_available():
+        # model not supported on MPS,
+        # so we use CPU
+        device = "cpu" 
+    
     app = wx.App()
     main_frame = MainFrame(device)
     main_frame.Show(True)
