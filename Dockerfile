@@ -25,7 +25,8 @@ RUN apt-get -y update && \
     ca-certificates \
     pkg-config \
     libgtk-3-dev \ 
-    libxext6
+    libxext6 \
+    mesa-utils
 
 RUN apt-get -y autoremove && \
     apt-get -y autoclean && \
