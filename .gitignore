@@ -29,7 +29,6 @@ out/
 .idea/
 .gradle/
 build/
-/data/
 .idea/*
 *.iml
 
@@ -55,3 +54,7 @@ venv/*
 *.o*
 
 tha4.egg-info
+
+# model
+data/tha4/
+data/thirdparty/
