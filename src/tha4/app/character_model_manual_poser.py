@@ -363,18 +363,18 @@ class MainFrame(wx.Frame):
         pose = torch.tensor(current_pose, device=self.device)
         output_index = self.output_index_choice.GetSelection()
         with torch.no_grad():
-            start_cuda_event = torch.cuda.Event(enable_timing=True)
-            end_cuda_event = torch.cuda.Event(enable_timing=True)
-            start_cuda_event.record()
-            start_time = time.time()
+            # start_cuda_event = torch.cuda.Event(enable_timing=True)
+            # end_cuda_event = torch.cuda.Event(enable_timing=True)
+            # start_cuda_event.record()
+            # start_time = time.time()
 
             output_image = self.poser.pose(self.torch_source_image, pose, output_index)[0].detach().cpu()
 
-            end_time = time.time()
-            end_cuda_event.record()
-            torch.cuda.synchronize()
-            print("cuda time (ms):", start_cuda_event.elapsed_time(end_cuda_event))
-            print("elapsed time (ms):", (end_time - start_time) * 1000.0)
+            # end_time = time.time()
+            # end_cuda_event.record()
+            # torch.cuda.synchronize()
+            # print("cuda time (ms):", start_cuda_event.elapsed_time(end_cuda_event))
+            # print("elapsed time (ms):", (end_time - start_time) * 1000.0)
 
         numpy_image = convert_output_image_from_torch_to_numpy(output_image)
         self.last_output_numpy_image = numpy_image
