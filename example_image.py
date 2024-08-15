@@ -39,7 +39,8 @@ if __name__ == "__main__":
     pose = torch.tensor(current_pose)
 
     # Inference
-    output_image = poser.pose(torch_source_image, pose)[0].float()
+    with torch.no_grad():
+        output_image = poser.pose(torch_source_image, pose)[0].float()
     numpy_image = convert_output_image_from_torch_to_numpy(output_image)
     
     # Visualize the results
